@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@layer components {
+  .form-input {
+    width: 100%;
+    border-radius: 0.5rem;
+    border: 1.5px solid #E5E7EB;
+    padding: 0.625rem 0.875rem;
+    font-size: 0.875rem;
+    color: #0F172A;
+    background: #FFFFFF;
+    outline: none;
+    transition: all 0.2s;
+  }
+  .form-input:focus {
+    border-color: #0F172A;
+    box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.08);
+  }
+}
