@@ -17,3 +17,57 @@
     box-shadow: 0 0 0 3px rgba(15, 23, 42, 0.08);
   }
 }
+
+/* --- THE MAGIC PDF FIX --- */
+@media print {
+  @page { margin: 15mm; size: A4; }
+  
+  body { 
+    background: white !important; 
+    -webkit-print-color-adjust: exact; 
+    print-color-adjust: exact; 
+  }
+
+  /* Hide the success overlay and buttons during PDF generation */
+  .no-print { display: none !important; }
+
+  /* Ensure the header prints its dark background */
+  .print-header {
+    background-color: #0F172A !important;
+    color: white !important;
+    padding: 24px !important;
+    border-radius: 8px !important;
+    margin-bottom: 20px !important;
+  }
+
+  /* Make sections look clean on paper */
+  section {
+    box-shadow: none !important;
+    border: 1px solid #E5E7EB !important;
+    break-inside: avoid; /* Prevents sections from splitting across pages */
+    margin-bottom: 16px !important;
+    padding: 20px !important;
+  }
+
+  /* Convert bulky inputs into clean underlines for the PDF */
+  input[type="text"], 
+  input[type="number"], 
+  input[type="email"], 
+  input[type="tel"], 
+  input[type="date"], 
+  select, 
+  textarea {
+    border: none !important;
+    border-bottom: 1px solid #94A3B8 !important;
+    border-radius: 0 !important;
+    padding: 4px 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    color: black !important;
+  }
+
+  /* Hide placeholder text in the PDF */
+  input::placeholder, textarea::placeholder {
+    color: transparent !important;
+  }
+}
