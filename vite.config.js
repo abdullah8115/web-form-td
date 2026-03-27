@@ -8,6 +8,12 @@ export default defineConfig({
   plugins: [
     react(),
     babel({ presets: [reactCompilerPreset()] }),
-    tailwindcss(), // <-- Just add this right here
+    tailwindcss(), 
   ],
+  resolve: {
+    alias: {
+      // This routes the old package to the new Tailwind v4 compatible one!
+      'html2canvas': 'html2canvas-pro',
+    },
+  },
 })
